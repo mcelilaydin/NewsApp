@@ -56,13 +56,13 @@ class ViewController: UIViewController,UITableViewDataSource,UITableViewDelegate
         return cell
     }
     
-    /*func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
-        let vc = storyboard?.instantiateViewController(withIdentifier: "DetailViewController") as? DetailsVC
+    func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
+        let vc = storyboard?.instantiateViewController(withIdentifier: "DetailViewController") as? DetailVC
         let newsVM = newsListVM.newss
         vc?.detailData = newsVM[indexPath.row]
         self.navigationController?.pushViewController(vc!, animated: true)
         return indexPath
-    }*/
+    }
 
 }
 
