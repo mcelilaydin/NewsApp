@@ -10,6 +10,8 @@ import UIKit
 class DetailVC: UIViewController {
 
     @IBOutlet weak var DdescriptionLabel: UILabel!
+    @IBOutlet weak var DauthorLabel: UILabel!
+    @IBOutlet weak var DtitleLabel: UILabel!
     @IBOutlet weak var imageView: UIImageView!
     
     var detailData : News?
@@ -18,6 +20,11 @@ class DetailVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        DdescriptionLabel.sizeToFit()
+        DdescriptionLabel.textAlignment = .left
+        DauthorLabel.sizeToFit()
+        DtitleLabel.sizeToFit()
         
        getData()
         
@@ -38,7 +45,12 @@ class DetailVC: UIViewController {
                }
            }
        
-            self.DdescriptionLabel.text = detailData?.description
-       }
-       
+       self.DdescriptionLabel.text = detailData?.description
+       self.DtitleLabel.text = detailData?.title
+       self.DauthorLabel.text = detailData?.author
+    
+   }
+    
 }
+
+
