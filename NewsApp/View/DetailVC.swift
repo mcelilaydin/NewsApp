@@ -10,15 +10,35 @@ import UIKit
 class DetailVC: UIViewController {
 
     @IBOutlet weak var DdescriptionLabel: UILabel!
+    @IBOutlet weak var imageView: UIImageView!
     
     var detailData : News?
     
+    var data = Data()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
         
-        self.DdescriptionLabel.text = detailData?.description
+       getData()
+        
     }
-
+    
+   func getData(){
+        
+       if let urlString = URL(string: detailData?.urlToImage ?? ""){
+           DispatchQueue.main.async {
+               do{
+                   self.data = try Data(contentsOf: urlString)
+                   DispatchQueue.main.async {
+                       self.imageView.image = UIImage(data: self.data)
+                   }
+               } catch{
+                   print("ErrorDetailsImage")
+                    }
+               }
+           }
+       
+            self.DdescriptionLabel.text = detailData?.description
+       }
+       
 }
