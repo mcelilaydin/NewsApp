@@ -67,10 +67,10 @@
                                 </prototypes>
                             </tableView>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="fjN-I6-SuX">
-                                <rect key="frame" x="319" y="88" width="75" height="31"/>
+                                <rect key="frame" x="303" y="88" width="91" height="31"/>
                                 <segments>
                                     <segment title="TR"/>
-                                    <segment title="US"/>
+                                    <segment title="USA"/>
                                 </segments>
                                 <connections>
                                     <action selector="indexChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="3Hi-FV-2fb"/>
