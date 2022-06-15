@@ -11,7 +11,11 @@ class ViewController: UIViewController,UITableViewDataSource,UITableViewDelegate
     
     private var newsListVM : NewsListViewModel!
 
+    @IBOutlet weak var segmentControl: UISegmentedControl!
+    
     @IBOutlet weak var tableView: UITableView!
+    
+    var lang : String = "tr"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,11 +24,18 @@ class ViewController: UIViewController,UITableViewDataSource,UITableViewDelegate
         tableView.dataSource = self
         
         setUp()
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        
+        setUp()
+        
     }
 
     func setUp(){
         
-        let url = URL(string: "https://newsapi.org/v2/top-headlines?country=tr&apiKey=02bc5fb2d8ae4d73973e8fe89b93570f")
+        let url = URL(string: "https://newsapi.org/v2/top-headlines?country=\(lang)&apiKey=02bc5fb2d8ae4d73973e8fe89b93570f")
         
         WebService().getData(url: url!) { news in
             if let news = news {
@@ -63,6 +74,21 @@ class ViewController: UIViewController,UITableViewDataSource,UITableViewDelegate
         self.navigationController?.pushViewController(vc!, animated: true)
         return indexPath
     }
-
+    @IBAction func indexChanged(_ sender: Any) {
+        switch segmentControl.selectedSegmentIndex{
+            
+        case 0:
+            lang = "tr"
+            navigationItem.title = "Haberler"
+            viewWillAppear(true)
+        case 1:
+            lang =  "us"
+            navigationItem.title = "News"
+            viewWillAppear(true)
+        default:
+            break
+        }
+    }
+    
 }
 

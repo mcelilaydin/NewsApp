@@ -66,6 +66,16 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="fjN-I6-SuX">
+                                <rect key="frame" x="319" y="88" width="75" height="31"/>
+                                <segments>
+                                    <segment title="TR"/>
+                                    <segment title="US"/>
+                                </segments>
+                                <connections>
+                                    <action selector="indexChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="3Hi-FV-2fb"/>
+                                </connections>
+                            </segmentedControl>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -74,10 +84,14 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="ra7-iE-jzb" secondAttribute="bottom" id="KGu-u2-KrL"/>
                             <constraint firstItem="ra7-iE-jzb" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="oA5-UL-FjQ"/>
                             <constraint firstItem="ra7-iE-jzb" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="org-6G-PZc"/>
+                            <constraint firstItem="fjN-I6-SuX" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="rSQ-PN-7Fv"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="fjN-I6-SuX" secondAttribute="bottom" constant="744" id="uRg-uW-xFw"/>
+                            <constraint firstItem="fjN-I6-SuX" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="vkK-9l-KXj"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Haberler" id="LuE-qD-hoS"/>
                     <connections>
+                        <outlet property="segmentControl" destination="fjN-I6-SuX" id="j1J-4w-j9J"/>
                         <outlet property="tableView" destination="ra7-iE-jzb" id="CVT-JO-Dtu"/>
                         <segue destination="TAA-vs-gBr" kind="show" identifier="DetailsVC" id="H6y-TM-7bg"/>
                     </connections>
