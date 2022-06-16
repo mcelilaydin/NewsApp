@@ -74,6 +74,21 @@ class ViewController: UIViewController,UITableViewDataSource,UITableViewDelegate
         self.navigationController?.pushViewController(vc!, animated: true)
         return indexPath
     }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        let rotationTransform = CATransform3DTranslate(CATransform3DIdentity, -500, 10, 0)
+        cell.layer.transform = rotationTransform
+        cell.layer.masksToBounds = true
+        cell.layer.cornerRadius = 8.0
+        
+        cell.alpha = 0.5
+        UIView.animate(withDuration: 1.0) {
+            cell.layer.transform = CATransform3DIdentity
+            cell.alpha = 1.0
+        }
+    }
+    
+    
     @IBAction func indexChanged(_ sender: Any) {
         switch segmentControl.selectedSegmentIndex{
             
