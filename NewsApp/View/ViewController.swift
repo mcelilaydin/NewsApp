@@ -15,7 +15,7 @@ class ViewController: UIViewController,UITableViewDataSource,UITableViewDelegate
     
     @IBOutlet weak var tableView: UITableView!
     
-    var lang : String = "tr"
+    var country : String = "tr"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,7 +35,7 @@ class ViewController: UIViewController,UITableViewDataSource,UITableViewDelegate
 
     func setUp(){
         
-        let url = URL(string: "https://newsapi.org/v2/top-headlines?country=\(lang)&apiKey=02bc5fb2d8ae4d73973e8fe89b93570f")
+        let url = URL(string: "https://newsapi.org/v2/top-headlines?country=\(country)&apiKey=02bc5fb2d8ae4d73973e8fe89b93570f")
         
         WebService().getData(url: url!) { news in
             if let news = news {
@@ -45,6 +45,22 @@ class ViewController: UIViewController,UITableViewDataSource,UITableViewDelegate
                     self.tableView.reloadData()
                 }
             }
+        }
+    }
+    
+    @IBAction func indexChanged(_ sender: Any) {
+        switch segmentControl.selectedSegmentIndex{
+            
+        case 0:
+            country = "tr"
+            navigationItem.title = "Haberler"
+            viewWillAppear(true)
+        case 1:
+            country =  "us"
+            navigationItem.title = "News"
+            viewWillAppear(true)
+        default:
+            break
         }
     }
     
@@ -88,22 +104,4 @@ class ViewController: UIViewController,UITableViewDataSource,UITableViewDelegate
         }
     }
     
-    
-    @IBAction func indexChanged(_ sender: Any) {
-        switch segmentControl.selectedSegmentIndex{
-            
-        case 0:
-            lang = "tr"
-            navigationItem.title = "Haberler"
-            viewWillAppear(true)
-        case 1:
-            lang =  "us"
-            navigationItem.title = "News"
-            viewWillAppear(true)
-        default:
-            break
-        }
-    }
-    
 }
-
