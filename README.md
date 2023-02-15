@@ -11,6 +11,7 @@
 - UITableView
 - Custom TableView Cell
 - URLSession
+- ScrollView
 
 ## Requirements 🛠️
 
