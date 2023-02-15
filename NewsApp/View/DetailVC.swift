@@ -8,7 +8,7 @@
 import UIKit
 
 class DetailVC: UIViewController {
-
+    
     @IBOutlet weak var DdescriptionLabel: UILabel!
     @IBOutlet weak var DauthorLabel: UILabel!
     @IBOutlet weak var DtitleLabel: UILabel!
@@ -20,37 +20,33 @@ class DetailVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         DdescriptionLabel.sizeToFit()
         DdescriptionLabel.textAlignment = .left
         DauthorLabel.sizeToFit()
         DtitleLabel.sizeToFit()
-        
-       getData()
+        getData()
         
     }
     
-   func getData(){
-        
-       if let urlString = URL(string: detailData?.urlToImage ?? ""){
-           DispatchQueue.main.async {
-               do{
-                   self.data = try Data(contentsOf: urlString)
-                   DispatchQueue.main.async {
-                       self.imageView.image = UIImage(data: self.data)
-                   }
-               } catch{
-                   print("ErrorDetailsImage")
+    private func getData(){
+        if let urlString = URL(string: detailData?.urlToImage ?? ""){
+            DispatchQueue.main.async {
+                do{
+                    self.data = try Data(contentsOf: urlString)
+                    DispatchQueue.main.async {
+                        self.imageView.image = UIImage(data: self.data)
                     }
-               }
-           }
-       
-       self.DdescriptionLabel.text = detailData?.description
-       self.DtitleLabel.text = detailData?.title
-       self.DauthorLabel.text = detailData?.author
-    
-   }
-    
+                } catch{
+                    print("ErrorDetailsImage")
+                }
+            }
+        }
+        
+        self.DdescriptionLabel.text = detailData?.description
+        self.DtitleLabel.text = detailData?.title
+        self.DauthorLabel.text = detailData?.author
+        
+    }
 }
 
 

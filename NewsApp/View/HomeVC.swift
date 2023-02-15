@@ -10,9 +10,8 @@ import UIKit
 class HomeVC: UIViewController,UITableViewDataSource,UITableViewDelegate {
     
     private var newsListVM : NewsListViewModel!
-
-    @IBOutlet weak var segmentControl: UISegmentedControl!
     
+    @IBOutlet weak var segmentControl: UISegmentedControl!
     @IBOutlet weak var tableView: UITableView!
     
     var country : String = "tr"
@@ -22,25 +21,19 @@ class HomeVC: UIViewController,UITableViewDataSource,UITableViewDelegate {
         // Do any additional setup after loading the view.
         tableView.delegate = self
         tableView.dataSource = self
-        
         setUp()
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        
         setUp()
-        
     }
 
     func setUp(){
         
         let url = URL(string: "https://newsapi.org/v2/top-headlines?country=\(country)&apiKey=02bc5fb2d8ae4d73973e8fe89b93570f")
-        
         WebService().getData(url: url!) { news in
             if let news = news {
                 self.newsListVM = NewsListViewModel(newss: news)
-                
                 DispatchQueue.main.async {
                     self.tableView.reloadData()
                 }
@@ -50,7 +43,6 @@ class HomeVC: UIViewController,UITableViewDataSource,UITableViewDelegate {
     
     @IBAction func indexChanged(_ sender: Any) {
         switch segmentControl.selectedSegmentIndex{
-            
         case 0:
             country = "tr"
             navigationItem.title = "Haberler"

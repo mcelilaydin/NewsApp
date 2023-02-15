@@ -24,7 +24,4 @@ class OnboardingVC: UIViewController {
         vc.modalTransitionStyle = .flipHorizontal
         self.present(vc, animated: true)
     }
-    
-    
-
 }
