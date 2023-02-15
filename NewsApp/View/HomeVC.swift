@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ViewController: UIViewController,UITableViewDataSource,UITableViewDelegate {
+class HomeVC: UIViewController,UITableViewDataSource,UITableViewDelegate {
     
     private var newsListVM : NewsListViewModel!
 

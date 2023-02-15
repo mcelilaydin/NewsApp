@@ -12,7 +12,7 @@
         <!--Haberler-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="NewsApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="HomeVC" customModule="NewsApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -218,10 +218,72 @@
             </objects>
             <point key="canvasLocation" x="2000.0000000000002" y="112.83482142857142"/>
         </scene>
+        <!--OnboardingVC-->
+        <scene sceneID="BV8-is-NVg">
+            <objects>
+                <viewController storyboardIdentifier="onboarding" id="OFw-Kb-e9q" customClass="OnboardingVC" customModule="NewsApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Myv-8u-I5j">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="vm0-bO-vMp">
+                                <rect key="frame" x="20" y="118" width="374" height="494"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="252" verticalHuggingPriority="252" image="newspaper" translatesAutoresizingMaskIntoConstraints="NO" id="Rtp-Vl-8Bg">
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="456"/>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Continue for updated news and details." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FbG-Gj-KL2">
+                                        <rect key="frame" x="0.0" y="464" width="374" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="cb2-q4-EPT"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="20"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="FbG-Gj-KL2" firstAttribute="leading" secondItem="vm0-bO-vMp" secondAttribute="leading" id="RQh-Rf-5yJ"/>
+                                    <constraint firstAttribute="trailing" secondItem="FbG-Gj-KL2" secondAttribute="trailing" id="Wj0-nl-N8v"/>
+                                </constraints>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bvT-Rw-xwz">
+                                <rect key="frame" x="150" y="682" width="114" height="38"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Next">
+                                    <fontDescription key="titleFontDescription" type="boldSystem" pointSize="20"/>
+                                    <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="nextButtonClicked:" destination="OFw-Kb-e9q" eventType="touchUpInside" id="Gv5-z9-m7M"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="yyY-9m-HRW"/>
+                        <color key="backgroundColor" systemColor="systemTealColor"/>
+                        <constraints>
+                            <constraint firstItem="yyY-9m-HRW" firstAttribute="bottom" secondItem="vm0-bO-vMp" secondAttribute="bottom" constant="250" id="7kz-aB-Kbl"/>
+                            <constraint firstItem="vm0-bO-vMp" firstAttribute="top" secondItem="yyY-9m-HRW" secondAttribute="top" constant="70" id="96K-M5-fbh"/>
+                            <constraint firstItem="vm0-bO-vMp" firstAttribute="leading" secondItem="yyY-9m-HRW" secondAttribute="leading" constant="20" id="9TS-s8-dAo"/>
+                            <constraint firstItem="bvT-Rw-xwz" firstAttribute="leading" secondItem="yyY-9m-HRW" secondAttribute="leading" constant="150" id="D0q-FI-Q1h"/>
+                            <constraint firstItem="bvT-Rw-xwz" firstAttribute="top" secondItem="vm0-bO-vMp" secondAttribute="bottom" constant="70" id="HOm-C0-Yw6"/>
+                            <constraint firstItem="yyY-9m-HRW" firstAttribute="trailing" secondItem="vm0-bO-vMp" secondAttribute="trailing" constant="20" id="ewX-bA-0rQ"/>
+                            <constraint firstItem="yyY-9m-HRW" firstAttribute="trailing" secondItem="bvT-Rw-xwz" secondAttribute="trailing" constant="150" id="wB9-c4-3oE"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="onboardingImageView" destination="Rtp-Vl-8Bg" id="NGQ-zd-P2V"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Aa0-G5-jo9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-943" y="110"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="jfc-G1-oMv">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="aUO-9I-bqw" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="homeNC" automaticallyAdjustsScrollViewInsets="NO" id="aUO-9I-bqw" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="kBF-UX-n0l">
                         <rect key="frame" x="0.0" y="48" width="414" height="44"/>
@@ -238,6 +300,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="newspaper" width="1818" height="1755"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
@@ -249,6 +312,9 @@
         </systemColor>
         <systemColor name="systemRedColor">
             <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemTealColor">
+            <color red="0.18823529411764706" green="0.69019607843137254" blue="0.7803921568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
